@@ -1,0 +1,7 @@
+cd C:\Users\pberrozp\.gemini\antigravity\scratch\recurs-ue-llengua-primaria
+git init
+git add .
+git commit -m "Versió inicial: recurs educatiu accessible UE per a primària"
+git branch -M main
+git remote add origin https://github.com/EL-TEU-USUARI/recurs-ue-primaria.git
+git push -u origin main
