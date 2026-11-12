@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ca" data-font-size="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Unió Europea: Una comunitat de pobles i ciutadans | Cicle Superior de Primària</title>
+  <meta name="description" content="Recurs educatiu interactiu i accessible de comprensió lectora sobre la Unió Europea per a cicle superior de primària. Qüestionari autocorrectiu amb suport DUA i 2 intents amb pista.">
+  
+  <!-- Estils autònoms sense dependències externes obligatòries -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Enllaç d'accessibilitat per saltar directament al contingut principal (WCAG 2.1) -->
+  <a href="#main-content" class="skip-link">Salta al contingut principal</a>
+
+  <!-- CAPÇALERA PRINCIPAL I BARRA D'EINES DUA -->
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <span class="brand-flag" aria-hidden="true">🇪🇺</span>
+        <div>
+          <h1 class="brand-title">La Unió Europea: Pobles i Ciutadans</h1>
+          <p class="brand-subtitle">Llengua Catalana • Cicle Superior de Primària</p>
+        </div>
+      </div>
+
+      <!-- Barra d'Accessibilitat i DUA -->
+      <nav class="accessibility-bar" aria-label="Eines d'accessibilitat i DUA">
+        <!-- Mida del text -->
+        <div class="a11y-group" role="group" aria-label="Ajustament de mida de lletra">
+          <button type="button" id="btn-font-dec" class="a11y-btn" title="Reduir mida del text" aria-label="Reduir mida de la lletra">
+            A-
+          </button>
+          <button type="button" id="btn-font-inc" class="a11y-btn" title="Augmentar mida del text" aria-label="Augmentar mida de la lletra">
+            A+
+          </button>
+        </div>
+
+        <!-- Tipografia d'alta llegibilitat / Dislèxia -->
+        <button type="button" id="btn-dyslexia" class="a11y-btn" aria-pressed="false" title="Canviar a tipografia d'alta llegibilitat per a dislèxia">
+          📖 <span class="btn-text">Llegibilitat</span>
+        </button>
+
+        <!-- Mode Alt Contrast -->
+        <button type="button" id="btn-contrast" class="a11y-btn" aria-pressed="false" title="Alternar mode d'alt contrast">
+          🌓 <span class="btn-text">Contrast</span>
+        </button>
+
+        <!-- Aturar veu -->
+        <button type="button" id="btn-stop-speech" class="a11y-btn" title="Aturar la lectura en veu alta">
+          ⏹️ <span class="btn-text">Atura veu</span>
+        </button>
+
+        <!-- Glossari -->
+        <button type="button" id="btn-open-glossary" class="a11y-btn" aria-haspopup="dialog" title="Obrir glossari de vocabulari clau">
+          📚 <span class="btn-text">Glossari</span>
+        </button>
+
+        <!-- Guia docent i transparència IA -->
+        <button type="button" id="btn-open-teacher" class="a11y-btn" aria-haspopup="dialog" title="Guia didàctica docent i transparència sobre l'ús d'IA">
+          ℹ️ <span class="btn-text">Docent / IA</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTINGUT PRINCIPAL -->
+  <main id="main-content" class="main-content" role="main">
+
+    <!-- ======================================================================
+         VISTA 1: IDENTIFICACIÓ I REGISTRE (PROTECCIÓ DE DADES)
+         ====================================================================== -->
+    <section id="view-auth" class="view-section active" aria-labelledby="auth-title">
+      <div class="card-intro">
+        <span class="badge-tag">Activitat de Comprensió Lectora</span>
+        <h2 id="auth-title">Benvinguts i benvingudes a l'aventura europea!</h2>
+        <p>
+          En aquesta activitat llegirem un text divulgatiu sobre la història, els valors, els símbols i el funcionament de la <strong>Unió Europea</strong>. 
+          Després hauràs de respondre <strong>10 preguntes</strong> (literals i de reflexió inferencial).
+        </p>
+
+        <div class="privacy-box" role="note" aria-label="Informació sobre la protecció de dades">
+          <h3>🔒 Protecció de dades i privadesa (RGPD)</h3>
+          <p>
+            Per respectar la teva privadesa com a menor, pots utilitzar el teu nom de pila o un àlies escolar. 
+            <strong>Cap dada personal no surt del teu ordinador</strong>: tot es processa localment al teu navegador web i no s'envia a cap servidor ni a tercers.
+          </p>
+        </div>
+
+        <form id="form-auth" class="registration-form" novalidate>
+          <div class="form-group">
+            <label for="input-nom" class="form-label">
+              <span>👤 Nom o àlies escolar:</span>
+              <span class="form-help">(Exemple: Laia M., Arnau o Àlies Blau)</span>
+            </label>
+            <input type="text" id="input-nom" class="form-input" placeholder="Escriu el teu nom o àlies..." required autocomplete="off" maxlength="30">
+          </div>
+
+          <div class="form-group">
+            <label for="select-grup" class="form-label">
+              <span>🏫 Grup / Curs:</span>
+            </label>
+            <select id="select-grup" class="form-select">
+              <option value="5è A">5è d'Educació Primària - Grup A</option>
+              <option value="5è B">5è d'Educació Primària - Grup B</option>
+              <option value="6è A" selected>6è d'Educació Primària - Grup A</option>
+              <option value="6è B">6è d'Educació Primària - Grup B</option>
+              <option value="Aula d'Acollida">Aula d'Acollida / Suport</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="btn-start-quiz">
+            🚀 Comença l'activitat
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VISTA 2: ESPAI DE TREBALL (DUAL PANELL: TEXT + QÜESTIONARI AUTOCORRECTIU)
+         ====================================================================== -->
+    <section id="view-app" class="view-section" aria-label="Espai de lectura i preguntes">
+      
+      <!-- Barra superior de l'espai de treball -->
+      <div class="workspace-header">
+        <div class="student-badge">
+          <span>👤 Alumne/a:</span>
+          <strong id="badge-alumne-nom">Carregant...</strong>
+        </div>
+        <div class="workspace-controls">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-data" title="Reinicia la sessió i esborra les dades locals">
+            🔄 Reinicia sessió
+          </button>
+        </div>
+      </div>
+
+      <!-- Pestanyes per a dispositius mòbils / pantalles estretes -->
+      <nav class="view-tabs" aria-label="Canvi de visualització en pantalla petita">
+        <button type="button" class="tab-btn" id="tab-reading" aria-selected="false">
+          📖 Text de lectura
+        </button>
+        <button type="button" class="tab-btn" id="tab-quiz" aria-selected="true">
+          ✍️ Qüestionari (10 preguntes)
+        </button>
+      </nav>
+
+      <!-- Graella DUA: Dos panells simultanis per evitar sobrecàrrega de memòria de treball -->
+      <div class="dua-grid">
+
+        <!-- PANELL ESQUERRA: Text de lectura amb suports DUA -->
+        <aside class="reading-panel panel-hidden-mobile" id="reading-panel" aria-label="Panell del text de lectura">
+          <header class="reading-header">
+            <h2>Descobrim la Unió Europea</h2>
+            <div class="reading-meta-bar">
+              <span class="badge-tag">Text informatiu de consulta</span>
+              <span class="form-help">Pots consultar el text en tot moment</span>
+            </div>
+          </header>
+
+          <div id="reading-content" class="reading-content-body">
+            <!-- Es carrega dinàmicament des de js/quiz-data.js -->
+          </div>
+        </aside>
+
+        <!-- PANELL DRET: Qüestionari autocorrectiu (2 intents amb pista) -->
+        <section class="quiz-panel" id="quiz-panel" aria-label="Panell del qüestionari">
+          
+          <!-- Targeta de progrés -->
+          <div class="progress-card">
+            <div class="progress-header">
+              <span>Progrés: <strong id="question-current-num">1 de 10</strong></span>
+              <span class="form-help">Puntuació màxima: 100 pts</span>
+            </div>
+            
+            <div class="progress-bar-container" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar-fill" id="question-progress-bar"></div>
+            </div>
+
+            <!-- Mapa visual de les 10 preguntes -->
+            <div class="question-map" id="question-map" aria-label="Estat de les 10 preguntes">
+              <!-- Nodes 1..10 generats per JS -->
+            </div>
+          </div>
+
+          <!-- Targeta interactiva de la pregunta -->
+          <div class="question-card" id="question-card">
+            
+            <div class="question-title-area">
+              <div class="question-badges-wrapper">
+                <span class="question-type-badge" id="question-type-badge">Comprensió Literal</span>
+                <span class="question-format-badge" id="question-format-badge">🔘 Tipus Test</span>
+              </div>
+              <button type="button" class="btn-tts" id="btn-tts-question" aria-label="Escoltar aquesta pregunta en veu alta">
+                🔊 <span class="tts-label">Escoltar pregunta</span>
+              </button>
+            </div>
+
+            <fieldset class="quiz-fieldset" id="quiz-fieldset">
+              <legend class="question-legend" id="question-legend">
+                Carregant enunciat de la pregunta...
+              </legend>
+
+              <!-- Llista accessible d'opcions (radio buttons per a preguntes tipus test) -->
+              <ul class="options-list" id="options-list" role="radiogroup" aria-labelledby="question-legend">
+                <!-- Opcions generades dinàmicament -->
+              </ul>
+
+              <!-- Camp per a preguntes d'escriure (resposta construïda) -->
+              <div class="writing-container" id="writing-container" style="display: none;">
+                <label for="input-resposta-escrita" class="writing-label" id="writing-label">
+                  ✏️ Escriu la teva resposta:
+                </label>
+                <input type="text" id="input-resposta-escrita" class="writing-input" placeholder="Escriu aquí la resposta..." autocomplete="off" autocorrect="off" spellcheck="true" />
+                <span class="writing-help-text" id="writing-help-text">Consell: Pots consultar el text de l'esquerra. Prem el botó 'Comprova' o la tecla Intro quan hagis escrit la resposta.</span>
+              </div>
+            </fieldset>
+
+            <!-- Àrea de retroacció accessible (anunciada automàticament a lectors de pantalla) -->
+            <div id="feedback-container" class="feedback-container" aria-live="polite" aria-atomic="true">
+              <!-- Missatges de pista pedagògica, encert o segon error -->
+            </div>
+
+            <!-- Botons d'acció de la pregunta -->
+            <div class="quiz-actions">
+              <button type="button" class="btn btn-primary" id="btn-check">
+                Comprova la resposta
+              </button>
+
+              <button type="button" class="btn btn-primary" id="btn-retry" style="display: none;">
+                💡 Torna-ho a provar (2n intent amb pista)
+              </button>
+
+              <button type="button" class="btn btn-primary" id="btn-next" style="display: none;">
+                Següent pregunta ➔
+              </button>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VISTA 3: RESULTATS FINALS, AVALUACIÓ I DIPLOMA IMPRIMIBLE
+         ====================================================================== -->
+    <section id="view-results" class="view-section" aria-labelledby="results-title">
+      <div class="results-card">
+        
+        <header class="score-banner">
+          <span class="badge-tag">Activitat Finalitzada</span>
+          <h2 id="results-title">Enhorabona pel teu esforç!</h2>
+          <div class="score-number" id="score-number">--/100</div>
+          <p id="score-badge" style="font-weight: 700; font-size: 1.15rem; color: var(--color-primary);"></p>
+        </header>
+
+        <!-- Estadístiques de resolució -->
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value first-attempt" id="stat-first">0</div>
+            <div class="stat-label">Encerts al 1r intent (10 pts cadascun)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value second-attempt" id="stat-second">0</div>
+            <div class="stat-label">Encerts al 2n intent amb pista (5 pts cadascun)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value failed" id="stat-failed">0</div>
+            <div class="stat-label">Preguntes a revisar (0 pts)</div>
+          </div>
+        </div>
+
+        <!-- Desglossament competencial -->
+        <div class="competence-breakdown">
+          <h3>📊 Assoliment per tipologia de comprensió lectora:</h3>
+          
+          <div class="competence-bar-row">
+            <div class="competence-labels">
+              <span>Comprensió Literal (Localització d'informació directa):</span>
+              <strong id="val-literal">--</strong>
+            </div>
+            <div class="comp-bar">
+              <div class="comp-fill" id="bar-literal-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <div class="competence-bar-row">
+            <div class="competence-labels">
+              <span>Comprensió Inferencial (Deducció, relacions de causa-efecte i reflexió):</span>
+              <strong id="val-inferential">--</strong>
+            </div>
+            <div class="comp-bar">
+              <div class="comp-fill" id="bar-inferential-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diploma / Certificat d'aula -->
+        <div class="diploma-box" id="diploma-box">
+          <div style="font-size: 2.2rem; margin-bottom: 0.5rem;" aria-hidden="true">🇪🇺 🎓</div>
+          <h3 class="diploma-title">Certificat de Competència Lectora sobre la Unió Europea</h3>
+          <p>S'atorga el present reconeixement escolar a l'estudiant:</p>
+          <div class="diploma-student" id="diploma-nom">Nom Alumne</div>
+          <p>Del grup <strong id="diploma-grup">Curs</strong>, per haver completat amb èxit el qüestionari autocorrectiu.</p>
+          <p><strong id="diploma-puntuacio">--</strong></p>
+          <div class="diploma-date" id="diploma-data">Data</div>
+        </div>
+
+        <!-- Botons d'acció final -->
+        <div class="quiz-actions" style="justify-content: center; gap: 0.75rem;">
+          <button type="button" class="btn btn-primary" id="btn-download-pdf">
+            📥 Descarrega el diploma en .PDF
+          </button>
+          <button type="button" class="btn btn-secondary" id="btn-print-diploma">
+            🖨️ Imprimeix en paper
+          </button>
+          <button type="button" class="btn btn-secondary" id="btn-restart">
+            🔄 Tornar a practicar
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       MODAL 1: GLOSSARI DE VOCABULARI CLAU
+       ====================================================================== -->
+  <div id="modal-glossary" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="glossary-modal-title" aria-hidden="true">
+    <div class="modal-container">
+      <header class="modal-header">
+        <h2 id="glossary-modal-title">📚 Glossari de Vocabulari Clau</h2>
+        <button type="button" class="modal-close-btn" aria-label="Tancar el glossari">✕</button>
+      </header>
+      <div class="modal-body">
+        <p class="form-help" style="margin-bottom: 1rem;">
+          Consulta les definicions clau sobre les institucions, símbols i conceptes de la Unió Europea:
+        </p>
+        <dl class="glossary-list" id="glossary-list">
+          <!-- Es carrega dinàmicament -->
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL 2: GUIA DIDÀCTICA DOCENT I TRANSPARÈNCIA SOBRE L'ÚS D'IA
+       ====================================================================== -->
+  <div id="modal-teacher" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="teacher-modal-title" aria-hidden="true">
+    <div class="modal-container">
+      <header class="modal-header">
+        <h2 id="teacher-modal-title">ℹ️ Guia Docent, Criteris DUA i Transparència IA</h2>
+        <button type="button" class="modal-close-btn" aria-label="Tancar la guia docent">✕</button>
+      </header>
+      <div class="modal-body">
+        
+        <h3>🎯 Marc Curricular i Pedagògic</h3>
+        <p><strong>Nivell:</strong> Cicle Superior d'Educació Primària (5è i 6è curs).</p>
+        <p><strong>Àmbits:</strong> Llengua Catalana i Literatura (Comprensió Lectora) i Coneixement del Medi Natural, Social i Cultural.</p>
+        <p><strong>Normativa de referència:</strong> Decret 175/2022 de la Generalitat de Catalunya.</p>
+        
+        <h4>Competències específiques treballades:</h4>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          <li><strong>CCL3:</strong> Comprendre, interpretar i valorar textos orals i multimodals de diferents àmbits.</li>
+          <li><strong>CC2:</strong> Reconèixer les institucions i els valors democràtics compartits a Europa.</li>
+          <li><strong>CPSAA5:</strong> Aprendre de l'error mediante l'ús de pistes pedagògiques i la reflexió guiada.</li>
+        </ul>
+
+        <h3>♿ Accessibilitat (WCAG 2.1 AA) i DUA</h3>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          <li><strong>Doble intent formatiu:</strong> El primer error activa una pista contextualitzada que remet al paràgraf clau abans de sancionar la fallada.</li>
+          <li><strong>Independència del color:</strong> Cada estat (correcte, pista, error) es distingeix per text, icones (✓, 💡, ✗) i estils de vora diferenciats.</li>
+          <li><strong>Suports DUA:</strong> Síntesi de veu autònoma (Web Speech API), selector de font per a dislèxia, mode d'alt contrast i panell dividit per no sobrecarregar la memòria operativa.</li>
+        </ul>
+
+        <div class="transparency-callout">
+          <h3>🤖 Nota de Transparència sobre l'ús d'Intel·ligència Artificial</h3>
+          <p>
+            Aquest recurs interactiu ha estat desenvolupat amb el suport de models d'Intel·ligència Artificial en les tasques de redacció de la base de codi, estructuració HTML5/CSS/JS i prototipatge de la bateria de preguntes.
+          </p>
+          <p>
+            <strong>Revisió docent experta realitzada:</strong> S'ha efectuat una revisió humana estricta dels continguts per assegurar l'adequació al registre lingüístic de 5è i 6è de primària en llengua catalana, el rigor històric i institucional sobre la Unió Europea, la validesa de les pistes didàctiques i el compliment escrupolós del Reglament General de Protecció de Dades (RGPD) en no emmagatzemar cap dada de l'alumnat en servidors externs.
+          </p>
+        </div>
+
+        <p class="form-help">
+          Llicència educativa oberta Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div>
+        <strong>Recurs educatiu obert de Llengua Catalana</strong> • Cicle Superior de Primària
+      </div>
+      <div>
+        🔒 Compliment RGPD (Processament local) • WCAG 2.1 Nivell AA • Disseny DUA
+      </div>
+    </div>
+  </footer>
+
+  <!-- Regió activa d'anuncis per a lectors de pantalla (Screen Readers) -->
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- SCRIPTS AUTÒNOMS (Tots inclosos localment al projecte) -->
+  <script src="js/jspdf.umd.min.js"></script>
+  <script src="js/quiz-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
